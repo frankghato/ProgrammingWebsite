@@ -1,0 +1,402 @@
+header 
+{
+    width: 90%;
+    margin: 0 auto;
+}
+
+header::after
+{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav
+{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    padding: 15px 15px;
+}
+
+nav ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li
+{
+    display: inline-block;
+    margin-left: 50px;
+    padding-top: 25px;
+    padding-right: 20px;
+    position: relative;
+}
+
+nav a
+{
+    color: #e7dfdd;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+nav a::before
+{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: #e7dfdd;
+    position: absolute;
+    top:0;
+    width:0%;
+    transition: all ease-in-out 300ms;
+}
+
+nav a:hover::before
+{
+    width:100%;
+}
+
+nav a:hover
+{
+    color:white;
+}
+
+body
+{
+    margin:0;
+    color: #e7dfdd;
+    font-family: 'Noto Sans', sans-serif;
+    background: #94618E;
+}
+
+footer
+{
+    text-align: left;
+    padding: 3px 0;
+    background-color: #94618E;
+    color: #e7dfdd;
+    bottom:0;
+    width:100%;
+    margin-top: auto;
+    
+}
+
+section
+{
+    width:100%;
+    float:left;
+    padding-bottom:20px;
+}
+
+h1
+{
+    margin-left:15px;
+}
+
+h2, h3
+{
+    font-size:30px;
+}
+
+form
+{
+    margin-left:15px;
+}
+
+label
+{
+    padding-bottom:15px;
+    margin-bottom:10px;
+}
+
+input
+{
+    margin-bottom:10px;
+}
+
+@media screen and (max-width: 750px) 
+{
+    html, body 
+    {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .navButton
+    {
+        display:block;
+    }
+    .navButton span
+    {
+        display:block;
+    }
+    nav ul
+    {
+        display:none;
+    }
+    .recipe1
+    {
+        display:inline-block;
+        float:none;
+        width:100%;
+        margin: 0;
+        text-align:justify;
+        min-width: 80%;
+        border:none;
+        border-bottom: 1px solid black;
+        padding-left:0px;
+        padding-right:5px;
+        font-size:10px;
+        word-wrap:break-word;
+        margin-left:0px;
+    }
+    .recipe2
+    {
+        display:inline-block;
+        float:none;
+        width:100%;
+        margin: 0;
+        text-align:justify;
+        min-width: 90%;
+        border:none;
+        border-bottom: 1px solid black;
+        border-right:none !important;
+        padding-left:0px;
+        padding-right:5px;
+        font-size:10px;
+        word-wrap:break-word;
+        margin-left:0px;
+    }
+    .recipe3
+    {
+        display:inline-block;
+        float:none;
+        width:100%;
+        margin: 0;
+        text-align:justify;
+        min-width: 100%;
+        border:none;
+        padding-left:0px;
+        padding-right:5px;
+        font-size:10px;
+        word-wrap:break-word;
+        margin-left:0px;
+    }
+
+    figure
+    {
+        display:inline-block;
+        float:none;
+        width:100%;
+        margin: 0;
+        text-align:justify;
+        min-width: 80%;
+        margin-left:0px;
+        height:100%;
+        min-height: 80%;
+    }
+    .figureImage
+    {
+        width:100%;
+    }
+
+    .navButton 
+    {
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        left:0;
+    }
+      
+    .dropdown 
+    {
+        position: relative;
+        display: inline-block;
+    }
+      
+    .dropdownMenu 
+    {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 99;
+    }
+      
+    .dropdownMenu a 
+    {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+      
+    nav a::before
+    {
+        display:none;
+    }
+      
+    .dropdown:hover .dropdownMenu 
+    {
+        display: block;
+    }
+      
+}
+
+@media screen and (min-width: 750px)
+{
+    .navButton
+    {
+        visibility: hidden;
+        display:none;
+    }
+    .navButton span
+    {
+        display:none;
+        visibility: hidden;
+    }
+    nav
+    {
+        position:fixed;
+        top:0px;
+        left:0px;
+        display:contents;
+    }
+    .dropdown
+    {
+        display:none;
+    }
+} 
+
+
+.navButton
+{
+    display:block;
+    position:relative;
+    z-index:1;
+    user-select: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: none;
+}
+
+.navButton span
+{
+    display:block;
+    width:33px;
+    height:4px;
+    margin-bottom:5px;
+    position: relative;
+    background: white;
+    border-radius: 5px;
+    z-index: 1;
+    transform-origin: 0 0;
+    transition: 0.5s;
+}
+
+#home
+{
+    background: #94618E;
+    font-size: 60px;   
+}
+#recipes
+{
+    background: #853c7b;
+}
+
+#gallery
+{
+    background: #49274A;
+}
+
+#form
+{
+    background: #853c7b;
+}
+
+.footerText
+{
+    padding-left:15px;
+}
+
+.footerLinks
+{
+    color: #e7dfdd;
+    text-decoration: none;
+}
+
+.homePicture
+{
+    position: relative;
+    width:40%;
+    padding-left:35px;
+    bottom:20px;
+}
+
+.recipe1
+{
+    float:left;
+    width:33%;
+    margin-left:15px;
+    font-size:15px;
+}
+
+.recipe2
+{
+    float:left;
+    width:33%;
+    font-size:15px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.recipe3
+{
+    float:right;
+    width:33%;
+    font-size:15px;
+}
+
+.sourceLinks
+{
+    color: #e7dfdd;
+    text-decoration: none;
+}
+
+.galleryImage
+{
+    width:30%;
+    float:left;
+    padding:10px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+figure
+{
+    width:28%;
+    float:left;
+    text-align: center;
+    font-size: 20px;
+    margin: 0 auto;
+    height:50%;
+    margin-left: 15px;
+}
+
+.figureImage
+{
+    width:75%;
+}

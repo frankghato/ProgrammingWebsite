@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Noto+Sans:wght@700&family=Noto+Serif:wght@700&family=Outfit:wght@500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="scripts/projects.js"></script>
+<title>Frank Gatto - Projects</title>
+<header>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+            <div class="dropdown">
+                <button class="navButton"><span></span><span></span><span></span></button>
+                <div class="dropdownMenu">
+                    <a href="index.html">Home</a>
+                    <a href="labs.html">Labs</a>
+                    <a href="about.html">About Me</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="../index.html">Lab 2 Home</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="projects" id="projects">
+    <div class="project" id="TwitchAlertHandler">
+        <h3>Twitch Alert Handler</h3>
+        <a href="https://github.com/frankghato/TwitchAlertHandler" class="demoLink" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <p>This project uses the Streamlabs API and JavaScript to update an HTML document in response to Twitch alerts.</p>
+        <h4>Motivation Behind Project</h4>
+        <p>I created this application because I wanted to give Twitch streamers the ability to easily make their streams more interactive. This application allows streamers to create overlay elements that will interact with alerts and react and change based on the number of alerts.</p>
+        <h4>Features</h4>
+        <p>The base version of this project features three different elements that react to alerts differently. The three elements are represented by the Pokemon Chikorita, Totodile, and Cyndaquil. Chikorita and its evolutions react to every type of alert with an attack animation and evolve based on the total number of all alerts. Totodile will react to subscription alerts and will evolve based on the total number of subscriptions accrued. Cyndaquil will react specifically to donation alerts and will evolve based on the dollar amount accrued. On the first day of each month the three Pokemon reset to their base forms.</p>
+        <p>Development Status: Completed</p>
+        <a id="TwitchAlertHandler" onclick="showAdditionalImages(this.id)">Sample Images</a>
+    </div>
+
+    <div class="project" id="DatingWebsite">
+        <h3>Dating Website</h3>
+        <a href="https://github.com/frankghato/DatingWebsite" class="demoLink" target="_blank" rel="noopener noreferrer">GitHub Repository</a> <a href="dating-website/index.html" class="demoLink" target="_blank" rel="noopener noreferrer">Demo</a>
+        <p>A simple mockup of a dating website.</p>
+        <h4>Motivation Behind Project</h4>
+        <p>This project was created for an assignment in my Client Side Scripting course. The purpose of the assignment was to gain experience using JavaScript and JQuery.</p>
+        <h4>Features</h4>
+        <p>This project features both a simple and advanced search function to look through premade dating profiles. You can search by criteria such as gender, religion, and age. The project features the ability to create your own profile as well as preview how it looks to others and edit any of the information.</p>
+        <p>Development Status: Completed</p>
+    </div>
+
+    <div class="project" id="DealOrNoDeal">
+        <h3>Deal or No Deal Game</h3>
+        <a href="https://github.com/frankghato/CIS3309_DealOrNoDeal" class="demoLink" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <p>A Windows form version of the game show Deal or No Deal written in C#. Created in collaboration with a partner.</p>
+        <h4>Motivation Behind Project</h4>
+        <p>This project was created for an assignment in my Component-Based Software Design class. The purpose of the assignment was to work with a partner to recreate a game in a Windows Form application.</p>
+        <h4>Features</h4>
+        <p>The project features a Windows form version of Deal or No Deal with a GUI. Players select their case and then reveal what is inside other cases. After a select number of cases are opened, the banker will offer the player an amount of money for their case. The player can either accept the offer or continue opening cases. The game ends when the player accepts an offer or opens all of the cases. The game also features a database that will track statistics such as highest value won, lowest value won, etc.</p>
+        <p>Development Status: Completed</p>
+        <a id="DealOrNoDeal" onclick="showAdditionalImages(this.id)">Sample Images</a>
+    </div>
+
+    <div class="project" id="PokemonUniteWebsite">
+        <h3>Pokemon Unite Website</h3>
+        <a href="https://github.com/frankghato/PokemonUniteWebsite" class="demoLink" target="_blank" rel="noopener noreferrer">GitHub Repository</a> <a href="pokemon-unite-website/index.html" class="demoLink" target="_blank" rel="noopener noreferrer">Demo</a>
+        <p>A website containing information about the game Pokemon Unite.</p>
+        <h4>Motivation Behind Project</h4>
+        <p>The main motiviation behind this project was to gain experience creating and styling websites. I started development around the release of the game, so it was something relevant in my life. This was one of my first attempts at building a website and I've taken the things I've learned and applied it to different projects.</p>
+        <h4>Features</h4>
+        <p>This project features the ability to learn about Pokemon Unite's game mechanics, playable characters, and strategies.</p>
+        <p>Development Status: On Hiatus</p>
+    </div>
+
+    <div class="project" id="RecipeWebsite">
+        <h3>Recipe Website</h3>
+        <a href="https://github.com/frankghato/RecipeWebsite" class="demoLink" target="_blank" rel="noopener noreferrer">GitHub Repository</a> <a href="recipe-website/index.html" class="demoLink" target="_blank" rel="noopener noreferrer">Demo</a>
+        <p>A single page responsive recipe website.</p>
+        <h4>Motivation Behind Project</h4>
+        <p>This project was created for an assignment in my Client Side Scripting course. The purpose of this assignment was to practice and gain experience with responsive web design.</p>
+        <h4>Features</h4>
+        <p>This project utilizes reponsive web design as well as the single page design concept. It features three different recipes for users to make, a form for users to submit comments and recipes of their own, and a gallery containing images.</p>
+        <p>Development Status: Completed</p>
+    </div>
+
+    <div class="project" id="LibraryApplication">
+        <h3>Library Application</h3>
+        <a href="https://github.com/frankghato/LibraryApplication" class="demoLink" target="_blank" rel="noopener noreferrer">GitHub Repository</a> <a href="library-application/index.html" class="demoLink" target="_blank" rel="noopener noreferrer">Demo</a>
+        <p>An angular application that functions as a personal library tracker.</p>
+        <h4>Motivation Behind Project</h4>
+        <p>This project was created for an assignment in my Client Side Scripting course. THe purpose of this assignment was to learn a new framework and use it to build an application. I selected Angular and used it to create a library application.</p>
+        <h4>Features</h4>
+        <p>This project functions as a personal library for the user. It comes preloaded with 20 books. Users can add, modify, and delete books that are in the system. Users can also search for books by author, title, and genre. The application utilizes local storage within the browser to carry over any changes made between sessions.</p>
+        <p>Development Status: Completed</p>
+    </div>
+
+    <div class="project" id="Yahtzee">
+        <h3>Yahtzee Game</h3>
+        <a href="https://github.com/frankghato/CIS3309_Lab03_DiceGame" class="demoLink" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <p>A Windows form version of the game Yahtzee written in C#.</p>
+        <h4>Motivation Behind Project</h4>
+        <p>This project was created for an assignment in my Component-Based Software Design class. The purpose of the assignment was to gain experience with designing interactive windows forms and using C#.</p>
+        <h4>Features</h4>
+        <p>The project features a Windows form version of the game Yahtzee with a GUI. Users click a button to roll the dice and the outcomes of the rolls are displayed on screen. Users then select what category they want their roll to be applied towards.</p>
+        <p>Development Status: Completed</p>
+        <a id="Yahtzee" onclick="showAdditionalImages(this.id)">Sample Images</a>
+    </div>
+
+    <div class="project" id="ReviewWebsite">
+        <h3>Game Review Website</h3>
+        <a href="">GitHub Repository</a>
+        <p>A website dedicated to reviewing video games and articles about video games.</p>
+        <h4>Motivation Behind Project</h4>
+        <p>This project was started because my friends and I are passionate about gaming. We wanted to start reviewing games and writing about them for ourselves. I am creating this website to faciliate that.</p>
+        <h4>Features</h4>
+        <p>The project is still in early development, so there are not many notable features implemented at this time.</p>
+        <p>Development Status: In Development</p>
+    </div>
+
+
+</div>

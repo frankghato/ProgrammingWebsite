@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="dating.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Noto+Sans:wght@700&family=Noto+Serif:wght@700&family=Outfit:wght@500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="JavaScript.js"></script>
+<title>Frank Gatto - Dating Demo</title>
+<header>
+    <div>
+        <nav>
+            <ul>
+                <li><p onclick="displayLikes()" style="cursor: pointer;">View Profiles You Have Liked</p></li>
+                <li><p onclick="displayDislikes()" style="cursor: pointer;">View Profiles You have Disliked</p></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div style="height:400px">
+        <form>
+            <p id="instructions" class="instructions">Select a gender to begin searching, or enter a state and then select a gender to narrow the search pool.<br>Click Advanced Search for additional search options.<br><br></p>
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" onchange="loadProfiles()" required>
+                <option disabled selected value="Select">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="All">All</option>
+            </select>
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state">
+            <br><br>
+            <button id="advancedSearchButton" type="button" onclick="showAdvancedSearch()">Advanced Search</button>
+            <br><br>
+            <div id="advancedSearch" class="advancedSearch" style="visibility:hidden;">
+                <label for="wantsKids">Wants kids:</label>
+                <select name="wantsKids" id="wantsKids">
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                    <option value="Either" selected="selected">Either</option>
+                </select>
+                    
+                <label for="hasKids">Has Kids:</label>
+                <select name="hasKids" id="hasKids" >
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                    <option value="Either" selected="selected">Either</option>
+                </select>
+                <br>
+                <label for="state">Religion:</label>
+                <input type="text" id="religion" name="religion" size="10">
+                <br>
+                <label for="state">Minimum Age:</label>
+                <input type="text" id="minAge" name="minAge" size="4">
+
+                <label for="state">Maximum Age:</label>
+                <input type="text" id="maxAge" name="maxAge" size="4">
+            </div>
+            <button id="search" type="button" onclick="loadProfilesFromAdvancedSearch()" style="visibility:hidden;">Search</button>
+            <br>
+        </form>
+    </div>
+
+</body>
