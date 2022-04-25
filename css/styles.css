@@ -103,6 +103,7 @@ h2
 .resume
 {
     margin-left:100px;
+    margin-right:100px;
 }
 
 .resume p
@@ -118,8 +119,9 @@ h2
 .resumePDFLink
 {
     text-decoration: none;
-    color:white;
+    color:#bd0661;
 }
+
 
 .projects
 {
@@ -170,6 +172,7 @@ h2
 .welcome
 {
     margin-left:100px;
+    margin-right:100px;
     
 }
 
