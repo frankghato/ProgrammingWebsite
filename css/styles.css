@@ -189,6 +189,49 @@ h2
       body {
         position: relative
       }
+    
+    .projects p
+    {
+        margin-right:0;
+    }
+
+    .project
+    {
+        border: 2px solid black
+    }
+
+    .resume
+    {
+        margin:0;
+        margin-right:5px;
+    }
+
+    .resume h1
+    {
+        margin:0;
+        padding-left:0;
+    }
+
+    .resume p, ul, h2
+    {
+        padding-left:15px;
+    }
+
+    .resumePDFLink
+    {
+        margin:0;
+        padding-left:15px;
+    }
+
+    .welcome
+    {
+        margin:0;
+    }
+
+    .welcome h1
+    {
+        font-size:75px;
+    }
 
     .navButton
     {
@@ -285,6 +328,8 @@ h2
     {
         display:none;
     }
+
+
 } 
 
 .navButton
