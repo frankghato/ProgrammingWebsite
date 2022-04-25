@@ -1,10 +1,12 @@
 html, body
 {
-    background: #0e0b16;
+    /*background: #0e0b16;*/
     margin:0px;
     padding:0px;
     font-family: 'Noto Sans', sans-serif;
     color: #e7dfdd;
+    background: linear-gradient(to bottom, #00678a 0%, #630031 100%);
+    /*background-image: url("../assets/1.jpg");*/
 }
 
 header 
@@ -58,7 +60,7 @@ nav a::before
     display: block;
     height: 5px;
     width: 100%;
-    background-color: #e7dfdd;
+    background-color: #bd0661;
     position: absolute;
     top:0;
     width:0%;
@@ -72,7 +74,7 @@ nav a:hover::before
 
 nav a:hover
 {
-    color:white;
+    color:#bd0661;
 }
 
 footer
@@ -96,6 +98,11 @@ h2
 {
     padding-left:40px;
     padding-top:20px;
+}
+
+.resume
+{
+    margin-left:100px;
 }
 
 .resume p
@@ -122,10 +129,10 @@ h2
 
 .project
 {
-    background: #82a9ff54;
+    background: #00143b54;
     margin:auto;
     padding: 10px 20px;
-    border: 5px solid gray;
+    border: 5px solid black;
     width:90%;
     margin-bottom:20px;
 }
@@ -133,7 +140,7 @@ h2
 .projects a
 {
     text-decoration: none;
-    color:teal;
+    color:#bd0661;
     cursor: pointer;
 }
 
@@ -158,6 +165,17 @@ h2
 .projects h4
 {
     text-decoration: underline;
+}
+
+.welcome
+{
+    margin-left:100px;
+    
+}
+
+.welcome h1
+{
+    font-size:200px;
 }
 
 @media screen and (max-width: 750px) 
