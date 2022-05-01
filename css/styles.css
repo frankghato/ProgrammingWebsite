@@ -195,9 +195,17 @@ h2
         margin-right:0;
     }
 
+    .projects img
+    {
+        width: 85vw;
+        
+    }
+
     .project
     {
-        border: 2px solid black
+        border: none;
+        border-top :5px solid black;
+        border-bottom: 5px solid black;
     }
 
     .resume

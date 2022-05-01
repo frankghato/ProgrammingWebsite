@@ -41,9 +41,10 @@ const female19 = { id: "39", image: "images/cj.png", title: "Ms.", name: "Caitly
 const female20 = { id: "40", image: "images/wr.png", title: "Ms.", name: "Winona Ryder", age: "50", gender: "Female", profileDescription: "Hello, this is my profile description.", city: "Winona", state: "Minnesota", status: "Single", hasKids: "False", wantsKids: "False", religion: "Jewish", relationshipType: "short-term", liked: false, passed: false, additionalImages: ["https://m.media-amazon.com/images/M/MV5BMTQ3NzM3MTc2NF5BMl5BanBnXkFtZTcwODMxNjA0NA@@._V1_UY1200_CR126,0,630,1200_AL_.jpg", "https://prod-images.tcm.com/Master-Profile-Images/WinonaRyder.jpg"], additionalImagesShowing: false }
 
 
-const datingProfiles = [male1, male2, male3, male4, male5, male6, male7, male8, male9, male10, male11, male12, male13, male14, male15, male16, male17, male18, male19, male20, female1, female2, female3, female4, female5, female6, female7, female8, female9, female10, female11, female12, female13, female14, female15, female16, female17, female18, female19, female20];
+var premadeProfileData = [male1, male2, male3, male4, male5, male6, male7, male8, male9, male10, male11, male12, male13, male14, male15, male16, male17, male18, male19, male20, female1, female2, female3, female4, female5, female6, female7, female8, female9, female10, female11, female12, female13, female14, female15, female16, female17, female18, female19, female20];
 var profilesLoaded = false;
 
+var datingProfiles = [];
 
 
 //if the advanced search button is clicked, display advanced search options and disable simple search
@@ -76,8 +77,6 @@ function loadProfiles() {
     //get whatever gender is selected
     var selectedGender = document.getElementById("gender");
     var value = selectedGender.options[selectedGender.selectedIndex].value;
-
-
 
     //if one gender is selected, only display those profiles
     if (value != "All") {
@@ -118,7 +117,7 @@ function displayLikes() {
     unloadProfiles();
     for (let i = 0; i < datingProfiles.length; i++) {
         if (datingProfiles[i].liked == true) {
-            createSimpleDiv(datingProfiles[i])
+            createLikeDiv(datingProfiles[i])
         }
     }
     profilesLoaded = true;
@@ -128,11 +127,237 @@ function displayDislikes() {
     unloadProfiles();
     for (let i = 0; i < datingProfiles.length; i++) {
         if (datingProfiles[i].passed == true) {
-            createSimpleDiv(datingProfiles[i])
+            createDislikeDiv(datingProfiles[i])
         }
     }
     profilesLoaded = true;
 }
+
+function displayProfileCreator()
+{
+    unloadProfiles();
+    document.getElementById("profileCreatorDiv").style.visibility = "visible";
+    document.getElementById("profileCreatorButton").style.visibility = "visible";
+    document.getElementById("profileEditorButton").style.visibility = "hidden";
+}
+
+function createProfile()
+{
+    unloadProfiles();
+    var id = (datingProfiles.length+1).toString();
+    var image = document.getElementById("creatorMainProfileImage").value;
+    var title = document.getElementById("creatorTitle").value;
+    var name = document.getElementById("creatorName").value;
+    var age = document.getElementById("creatorAge").value;
+    var gender = document.getElementById("creatorGender").value;
+    var profileDescription = document.getElementById("creatorProfileDescription").value;
+    var city = document.getElementById("creatorCity").value;
+    var state = document.getElementById("creatorState").value;
+    var status = document.getElementById("creatorRelationshipStatus").value;
+    var hasKids = document.getElementById("creatorHasKids").value;
+    var wantsKids = document.getElementById("creatorWantsKids").value;
+    var religion = document.getElementById("creatorReligion").value;
+    var relationshipType = document.getElementById("creatorSeeking").value;
+    var liked = false;
+    var passed = false;
+    var additionalImages = [document.getElementById("creatorSecondProfileImage").value, document.getElementById("creatorThirdProfileImage").value];
+    var additionalimagesShowing = false;
+    if(image != "" && name != "" && age != "" && religion != "" && state != "" && profileDescription != "")
+    {
+        const newProfile = new DatingProfile(id, image, title, name, age, gender, profileDescription, city, state, status, hasKids, wantsKids, religion, relationshipType, liked, passed, additionalImages, additionalimagesShowing);
+        datingProfiles.push(newProfile);
+        alert("Profile created. Welcome, " + newProfile.name + ".");
+    }
+    else
+    {
+        alert("Profile not created. Please fill in all information that is not marked as optional.")
+    }    
+}
+
+function editProfile()
+{
+    profile = datingProfiles[datingProfiles.length - 1];
+    var image = document.getElementById("creatorMainProfileImage").value;
+    var title = document.getElementById("creatorTitle").value;
+    var name = document.getElementById("creatorName").value;
+    var age = document.getElementById("creatorAge").value;
+    var gender = document.getElementById("creatorGender").value;
+    var profileDescription = document.getElementById("creatorProfileDescription").value;
+    var city = document.getElementById("creatorCity").value;
+    var state = document.getElementById("creatorState").value;
+    var status = document.getElementById("creatorRelationshipStatus").value;
+    var hasKids = document.getElementById("creatorHasKids").value;
+    var wantsKids = document.getElementById("creatorWantsKids").value;
+    var religion = document.getElementById("creatorReligion").value;
+    var relationshipType = document.getElementById("creatorSeeking").value;
+    var secondImage = document.getElementById("creatorSecondProfileImage").value;
+    var thirdImage = document.getElementById("creatorThirdProfileImage").value;
+
+    if(image != "" && image != profile.image)
+    {
+        profile.image = image;
+    }
+    if(title != "" && title != profile.title)
+    {
+        profile.title = title;
+    }
+    if(name != "" && name != profile.name)
+    {
+        profile.name = name;
+    }
+    if(age != "" && age != profile.age)
+    {
+        profile.age = age;
+    }
+    if(religion != "" && religion != profile.religion)
+    {
+        profile.religion = religion;
+    }
+    if(gender != "" && gender != profile.gender)
+    {
+        profile.gender = gender;
+    }
+    if(city != "" && city != profile.city)
+    {
+        profile.city = city;
+    }
+    if(state != "" && state != profile.state)
+    {
+        profile.state = state;
+    }
+    if(relationshipType != "" && relationshipType != profile.relationshipType)
+    {
+        profile.relationshipType = relationshipType;
+    }
+    if(secondImage != "" && secondImage != profile.additionalImages[0])
+    {
+        profile.additionalImages[0] = secondImage;
+    }
+    if(thirdImage != "" && thirdImage != profile.additionalImages[1])
+    {
+        profile.additionalImages[1] = thirdImage;
+    }
+    if(status != "" && status != profile.status)
+    {
+        profile.status = status;
+    }
+    if(hasKids != "" && hasKids != profile.hasKids)
+    {
+        profile.hasKids = hasKids;
+    }
+    if(wantsKids != "" && wantsKids != profile.wantsKids)
+    {
+        profile.wantsKids = wantsKids;
+    }
+    if(profileDescription != "" && profileDescription != profile.profileDescription)
+    {
+        profile.profileDescription = profileDescription;
+    }
+    profilesLoaded = true;
+    unloadProfiles();
+    previewProfile();
+}
+
+function createPremadeProfiles()
+{
+    console.log(localStorage.length);
+    if(localStorage.length > 1)
+    {
+        numProfiles = parseInt(localStorage.getItem("number of profiles"));
+        for(let i = 0; i < numProfiles; i++)
+        {
+            var id = localStorage.getItem("profile " + i + " id");
+            var image = localStorage.getItem("profile " + i + " image");
+            var title = localStorage.getItem("profile " + i + " title");
+            var name = localStorage.getItem("profile " + i + " name");
+            var age = localStorage.getItem("profile " + i + " age");
+            var gender = localStorage.getItem("profile " + i + " gender");
+            var profileDescription = localStorage.getItem("profile " + i + " profileDescription");
+            var city = localStorage.getItem("profile " + i + " city");
+            var state = localStorage.getItem("profile " + i + " state");
+            var status = localStorage.getItem("profile " + i + " state");
+            var hasKids = localStorage.getItem("profile " + i + " hasKids");
+            var wantsKids = localStorage.getItem("profile " + i + " wantsKids");
+            var religion = localStorage.getItem("profile " + i + " religion");
+            var relationshipType = localStorage.getItem("profile " + i + " relationshipType");
+            var liked = localStorage.getItem("profile " + i + " liked");
+            var passed = localStorage.getItem("profile " + i + " passed");
+            var additionalImage1 = localStorage.getItem("profile " + i + " additionalImage1");
+            var additionalImage2 = localStorage.getItem("profile " + i + " additionalImage2");
+            if(passed == "true")
+            {
+                passed = true;
+            }
+            else if(passed == "false")
+            {
+                passed = false;
+            }
+            if(liked == "true")
+            {
+                liked = true;
+            }
+            else if(liked == "false")
+            {
+                liked = false;
+            }
+
+            const newProfile = new DatingProfile(id, image, title, name, age, gender, profileDescription, city, state, status, hasKids, wantsKids, religion, relationshipType, liked, passed, [additionalImage1, additionalImage2], false)
+            datingProfiles.push(newProfile);
+        }
+    }
+
+    else
+    {
+        for(let i = 0; i < premadeProfileData.length; i++)
+        {
+            const newProfile = new DatingProfile(premadeProfileData[i].id, premadeProfileData[i].image,premadeProfileData[i].title, premadeProfileData[i].name, premadeProfileData[i].age, premadeProfileData[i].gender, premadeProfileData[i].profileDescription, premadeProfileData[i].city, premadeProfileData[i].state, premadeProfileData[i].status, premadeProfileData[i].hasKids, premadeProfileData[i].wantsKids, premadeProfileData[i].religion, premadeProfileData[i].relationshipType, premadeProfileData[i].liked, premadeProfileData[i].passed, premadeProfileData[i].additionalImages, false);
+            datingProfiles.push(newProfile);
+        }
+    }
+    
+
+    localStorage.clear();
+
+}
+
+function previewProfile()
+{
+    unloadProfiles();
+    profile = datingProfiles[datingProfiles.length-1];
+    let divToAppendTo = document.getElementById("profilesDiv");
+    let newDiv = document.createElement("div");
+    newDiv.className = "bio";
+    newDiv.id = profile.id;
+
+    let profileImage = document.createElement("img");
+    profileImage.src = profile.image;
+    profileImage.className = "profileImage;"
+    profileImage.id = profile.id + "image";
+    let profileSpecifics = document.createElement("p");
+    profileSpecifics.innerHTML = profile.title + " " + profile.name + ", " + profile.age + " " + profile.gender + "<br>Religion: " + profile.religion + "<br>" + profile.city + ", " + profile.state + "<br>" + profile.status + ", seeking " + profile.relationshipType + " relationship<br>Has Kids: " + profile.hasKids + "<br>Wants Kids: " + profile.wantsKids + "<br><br>" + profile.profileDescription + "<br><img id=" + profile.id + " class=profileButtons src=images/likeButton.png><img id=" + profile.id + " class=profileButtons src=images/dislikeButton.png><br><img style=float:left; id=" + profile.id + " onclick=displayAdditionalImages(this.id) class=profileButtons src=images/photosMenu.png><p style=font-size:12px;padding-top:15px;>Click to see more photos.</p>";
+
+    profileSpecifics.className = "bioDescription"
+
+    newDiv.appendChild(profileImage);
+    newDiv.appendChild(profileSpecifics);
+    
+    let info = document.createElement("p");
+    info.innerHTML = "This is a preview of how others will see your profile. You can use the form below to make changes to your information."
+    newDiv.appendChild(info);
+
+    divToAppendTo.appendChild(newDiv);
+    profilesLoaded = true;
+    document.getElementById("profileCreatorDiv").style.visibility = "visible";
+    document.getElementById("profileCreatorButton").style.visibility = "hidden";
+    document.getElementById("profileEditorButton").style.visibility = "visible";
+    document.getElementById("creatorTitle").value = profile.title;
+    document.getElementById("creatorGender").value = profile.gender;
+    document.getElementById("creatorRelationshipStatus").value = profile.status;
+    document.getElementById("creatorSeeking").value = profile.relationshipType;
+    document.getElementById("creatorHasKids").value = profile.hasKids;
+    document.getElementById("creatorWantsKids").value = profile.wantsKids;
+}
+
 
 function displayAdditionalImages(profileID) {
     if (datingProfiles[profileID - 1].additionalImagesShowing == false) {
@@ -156,8 +381,6 @@ function displayAdditionalImages(profileID) {
         document.getElementById(profileID + "additionalImages").remove();
         datingProfiles[profileID - 1].additionalImagesShowing = false;
     }
-
-
 }
 
 function loadProfilesFromAdvancedSearch() {
@@ -271,10 +494,15 @@ function unloadProfiles() {
 
         profilesLoaded = false;
     }
+
+    document.getElementById("profileCreatorDiv").style.visibility = "hidden";
+    document.getElementById("profileCreatorButton").style.visibility = "hidden";
+    document.getElementById("profileEditorButton").style.visibility = "hidden";
 }
 
 function createDiv(profile) {
     let newDiv = document.createElement("div");
+    let divToAppendTo = document.getElementById("profilesDiv");
     newDiv.className = "bio";
     newDiv.id = profile.id;
 
@@ -290,7 +518,7 @@ function createDiv(profile) {
     newDiv.appendChild(profileImage);
     newDiv.appendChild(profileSpecifics);
 
-    document.body.appendChild(newDiv);
+    divToAppendTo.appendChild(newDiv);
 }
 
 function createSimpleDiv(profile) {
@@ -310,7 +538,51 @@ function createSimpleDiv(profile) {
     newDiv.appendChild(profileImage);
     newDiv.appendChild(profileSpecifics);
 
-    document.body.appendChild(newDiv);
+    let divToAppendTo = document.getElementById("profilesDiv");
+    divToAppendTo.appendChild(newDiv);
+}
+
+function createLikeDiv(profile) {
+    let newDiv = document.createElement("div");
+    newDiv.className = "bio";
+    newDiv.id = profile.id;
+
+    let profileImage = document.createElement("img");
+    profileImage.src = profile.image;
+    profileImage.className = "profileImage;"
+    profileImage.style.height = "200px";
+    profileImage.style.width = "200px";
+    let profileSpecifics = document.createElement("p");
+    profileSpecifics.innerHTML = profile.name + ", " + profile.age + "<br>" + profile.profileDescription + "<br><img id=" + profile.id + " onclick=removeLike(this.id) class=profileButtons src=images/dislikeButton.png><p>  ^ Click to remove from likes.</p>";
+    profileSpecifics.className = "bioDescription"
+    profileSpecifics.style.paddingTop = "75px";
+    newDiv.appendChild(profileImage);
+    newDiv.appendChild(profileSpecifics);
+
+    let divToAppendTo = document.getElementById("profilesDiv");
+    divToAppendTo.appendChild(newDiv);
+}
+
+function createDislikeDiv(profile)
+{
+    let newDiv = document.createElement("div");
+    newDiv.className = "bio";
+    newDiv.id = profile.id;
+
+    let profileImage = document.createElement("img");
+    profileImage.src = profile.image;
+    profileImage.className = "profileImage;"
+    profileImage.style.height = "200px";
+    profileImage.style.width = "200px";
+    let profileSpecifics = document.createElement("p");
+    profileSpecifics.innerHTML = profile.name + ", " + profile.age + "<br>" + profile.profileDescription + "<br><img id=" + profile.id + " onclick=removeDislike(this.id) class=profileButtons src=images/dislikeButton.png><p>  ^ Click to remove from dislikes.</p>";
+    profileSpecifics.className = "bioDescription"
+    profileSpecifics.style.paddingTop = "75px";
+    newDiv.appendChild(profileImage);
+    newDiv.appendChild(profileSpecifics);
+
+    let divToAppendTo = document.getElementById("profilesDiv");
+    divToAppendTo.appendChild(newDiv);
 }
 
 function likeProfile(profileID) {
@@ -336,21 +608,79 @@ function dislikeProfile(profileID) {
     }
 }
 
-
-
-function deleteTest() {
-    var profiles = [0, 1, 2, 3, 4, 5];
-    var tosplice = [1, 3];
-    for (let i = 0; i < profiles.length; i++) {
-        for (let j = 0; j < tosplice.length; j++) {
-            if (profiles[i] == tosplice[j]) {
-                delete profiles[i];
-            }
+function removeLike(profileID)
+{
+    for(let i = 0 ; i < datingProfiles.length; i++)
+    {
+        if(datingProfiles[i].id == profileID)
+        {
+            datingProfiles[i].liked=false;
         }
     }
+}
 
-    for (let i = 0; i < profiles.length; i++) {
-        console.log(profiles[i]);
+function removeDislike(profileID)
+{
+    for(let i = 0 ; i < datingProfiles.length; i++)
+    {
+        if(datingProfiles[i].id == profileID)
+        {
+            datingProfiles[i].passed=false;
+        }
     }
+}
 
+
+function storeProfiles()
+{
+    localStorage.setItem("number of profiles", datingProfiles.length);
+    for(let i = 0; i < datingProfiles.length; i++)
+    {
+        profile = datingProfiles[i];
+        localStorage.setItem("profile " + i + " id", profile.id);
+        localStorage.setItem("profile " + i + " image", profile.image);
+        localStorage.setItem("profile " + i + " title", profile.title);
+        localStorage.setItem("profile " + i + " name", profile.name);
+        localStorage.setItem("profile " + i + " age", profile.age);
+        localStorage.setItem("profile " + i + " gender", profile.gender);
+        localStorage.setItem("profile " + i + " profileDescription", profile.profileDescription);
+        localStorage.setItem("profile " + i + " city", profile.city);
+        localStorage.setItem("profile " + i + " state", profile.state);
+        localStorage.setItem("profile " + i + " status", profile.status);
+        localStorage.setItem("profile " + i + " hasKids", profile.hasKids);
+        localStorage.setItem("profile " + i + " wantsKids", profile.wantsKids);
+        localStorage.setItem("profile " + i + " religion", profile.religion);
+        localStorage.setItem("profile " + i + " relationshipType", profile.relationshipType);
+        localStorage.setItem("profile " + i + " liked", profile.liked);
+        localStorage.setItem("profile " + i + " passed", profile.passed);
+        localStorage.setItem("profile " + i + " additionalImage1", profile.additionalImages[0]);
+        localStorage.setItem("profile " + i + " additionalImage2", profile.additionalImages[1]);
+        localStorage.setItem("profile " + i + " additionalImagesShowing", false);
+    }
+}
+
+
+class DatingProfile
+{
+    constructor(id, image, title, name, age, gender, profileDescription, city, state, status, hasKids, wantsKids, religion, relationshipType, liked, passed, additionalImages, additionalImagesShowing)
+    {
+        this.id = id;
+        this.image = image;
+        this.title = title;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.profileDescription = profileDescription;
+        this.city = city;
+        this.state = state;
+        this.status = status;
+        this.hasKids = hasKids;
+        this.wantsKids = wantsKids;
+        this.religion = religion;
+        this.relationshipType = relationshipType;
+        this.liked = liked;
+        this.passed = passed;
+        this.additionalImages = additionalImages;
+        this.additionalImagesShowing = additionalImagesShowing;
+    }
 }

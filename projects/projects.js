@@ -1,6 +1,6 @@
-var twitchAlertHandler = {id: "TwitchAlertHandler", images:["assets/project-images/twitch-alert-handler/1.PNG","assets/project-images/twitch-alert-handler/2.PNG"]};
-var dealOrNoDeal = {id:"DealOrNoDeal", images:["assets/project-images/deal-or-no-deal/1.png","assets/project-images/deal-or-no-deal/2.png"]};
-var yahtzee = {id:"Yahtzee", images:["assets/project-images/yahtzee/1.png","assets/project-images/yahtzee/2.png"]};
+var twitchAlertHandler = {id: "TwitchAlertHandler", images:["../assets/project-images/twitch-alert-handler/1.PNG","../assets/project-images/twitch-alert-handler/2.PNG"]};
+var dealOrNoDeal = {id:"DealOrNoDeal", images:["../assets/project-images/deal-or-no-deal/1.png","../assets/project-images/deal-or-no-deal/2.png"]};
+var yahtzee = {id:"Yahtzee", images:["../assets/project-images/yahtzee/1.png","../assets/project-images/yahtzee/2.png"]};
 var projects = [twitchAlertHandler, dealOrNoDeal, yahtzee];
 
 function showAdditionalImages(id)
