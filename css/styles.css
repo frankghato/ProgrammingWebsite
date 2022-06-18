@@ -178,7 +178,41 @@ h2
 
 .welcome h1
 {
-    font-size:200px;
+    font-size:150px;
+}
+
+.biography
+{
+    padding-top:0;
+    margin-left:100px;
+    margin-bottom:10px;
+}
+
+.biography p
+{
+    margin-left:20px;
+    margin-right:250px;
+}
+
+.biography a
+{
+    text-decoration: underline;
+    color:white;
+    padding-right:15px;
+}
+
+.biographyImage
+{
+    
+    height:400px;
+    border: 5px solid black;
+}
+
+.imageContainer
+{
+    padding-right:20px;
+    padding-bottom:20px;
+    float:left;
 }
 
 @media screen and (max-width: 750px) 
