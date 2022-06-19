@@ -77,17 +77,6 @@ nav a:hover
     color:#bd0661;
 }
 
-footer
-{
-    text-align: left;
-    padding: 3px 0;
-    background-color: #4717f6;
-    color: #e7dfdd;
-    bottom:0;
-    width:100%;
-    position: absolute;
-}
-
 h1
 {
     padding-left:40px;
@@ -98,6 +87,66 @@ h2
 {
     padding-left:40px;
     padding-top:20px;
+}
+
+footer
+{
+    position: absolute;
+    bottom:0px;
+    width: 100%;
+    background: linear-gradient(to bottom, #333333 0%, #292727 100%);
+    color: white;
+    text-align: left;
+    height:60px;
+    padding-bottom:10px;
+}
+
+footer a
+{
+    color:white;
+    text-decoration: underline;
+}
+
+footer p
+{
+    margin-left: 40px;
+}
+
+.projectsFooter
+{
+    position: relative;
+    bottom:0px;
+    width: 100%;
+    background: linear-gradient(to bottom, #333333 0%, #292727 100%);
+    color: white;
+    text-align: left;
+    height:60px;
+}
+
+#wrapper {
+    display: flex;    
+    width:100%;
+
+
+}
+#wrapper div {
+    flex-basis: 100%;
+}
+
+.section1
+{
+
+}
+
+.section2
+{
+    text-align:center;
+}
+
+.section3
+{
+    text-align:right;
+    margin-right: 40px;
 }
 
 .resume
@@ -185,7 +234,6 @@ h2
 {
     padding-top:0;
     margin-left:100px;
-    margin-bottom:10px;
 }
 
 .biography p
